@@ -1,5 +1,4 @@
 import SwiftUI
-
 struct IntroView: View {
     var body: some View {
         GeometryReader { geometry in
@@ -8,38 +7,42 @@ struct IntroView: View {
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
-                
+
                 VStack {
                     Spacer()
-                    
+
                     HStack {
                         Spacer()
-                        
-                        Image("caixaTexto")
+
+                        Image("caixaTexto1")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: min(geometry.size.width * 0.7, 700), height: min(geometry.size.height * 0.4, 600))
-                            .alignmentGuide(.leading) { _ in geometry.size.width / 10 }
-                            .offset(y: -50)
-                        
+                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.9)
+                            .position(x: geometry.size.width * 0.5, y: geometry.size.height / 2)
+
                         Spacer()
                     }
-                    
-                    Text("First we need to do")
+
+                    Text("First we need to understand the fragrancies and in what scenario which one fits the most.")
                         .foregroundColor(.white)
-                        .font(.custom("Baskic8", size: min(geometry.size.width * 0.1, 50)))
-                        .padding(.top, -450)
-                    
-                    // Estrutura responsiva em grade
-                    HStack(spacing: 16) {
-                        ForEach(0..<4) { index in
-                            Rectangle()
-                                .fill(Color.clear)
-                                .frame(width: (geometry.size.width - 64) / 4, height: 100)
-                        }
+                        .font(.custom("Baskic8", size: min(geometry.size.width * 0.1, 30)))
+                        .padding(.top, -geometry.size.height * 0.15)
+
+                    Image("botaoCima")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: min(geometry.size.width * 0.3, 200), height: min(geometry.size.width * 0.3, 200))
+                        .padding()
+                        .position(x: geometry.size.width / 2, y: geometry.size.height * 0.5)
+
+                    HStack {
+                        Text("Next")
+                            .foregroundColor(.white)
+                            .font(.custom("Baskic8", size: min(geometry.size.width * 0.1, 50)))
+                            .padding(.top, -geometry.size.height * 0.25)
+                            .position(x: geometry.size.width / 2, y: geometry.size.height * 0.4)
                     }
-                    .padding(16)
-                    
+
                     Spacer()
                 }
             }

@@ -2,15 +2,15 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isIntroViewActive = false
-
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 Spacer()
-
+                
                 HStack {
                     Spacer()
-                    
+                    //aajsifjasjfiasfjias
                     VStack {
                         Image("displayName")
                             .resizable()
@@ -30,18 +30,18 @@ struct ContentView: View {
                         .fullScreenCover(isPresented: $isIntroViewActive) {
                             IntroView()
                         }
-
+                        
                         Text("Start")
                             .foregroundColor(.white)
                             .font(.custom("Baskic8", size: min(geometry.size.width * 0.1, 50)))
                             .padding(.top, -140)
-
+                        
                         Spacer()
                         
                         Text("An Experience made by: Christian.  2024 Brazil")
                             .foregroundColor(.pink)
                             .font(.custom("Baskic8", size: min(geometry.size.width * 0.1, 50)))
-
+                        
                         // Estrutura responsiva em grade
                         VStack {
                             ForEach(0..<4) { rowIndex in
@@ -59,7 +59,7 @@ struct ContentView: View {
                     
                     Spacer()
                 }
-
+                
                 Spacer()
             }
             .background(
