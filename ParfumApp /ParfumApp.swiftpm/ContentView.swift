@@ -4,6 +4,7 @@ struct ContentView: View {
     @State private var isIntroViewActive = false
     
     var body: some View {
+        
         GeometryReader { geometry in
             VStack {
                 Spacer()
@@ -38,9 +39,9 @@ struct ContentView: View {
                         
                         Spacer()
                         
-                        Text("An Experience made by: Christian.  2024 Brazil")
-                            .foregroundColor(.pink)
-                            .font(.custom("Baskic8", size: min(geometry.size.width * 0.1, 50)))
+//                        Text("An Experience made by: Christian.  2024 Brazil")
+//                            .foregroundColor(.pink)
+//                            .font(.custom("Baskic8", size: min(geometry.size.width * 0.1, 50)))
                         
                         // Estrutura responsiva em grade
                         VStack {
@@ -71,4 +72,6 @@ struct ContentView: View {
         }
     }
 }
-
+#Preview {
+    ContentView()
+}
