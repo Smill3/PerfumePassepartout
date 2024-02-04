@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ScenariosView: View {
+struct PerfumesView: View {
     @State private var isIntroViewActive = false
     
     var body: some View {
@@ -12,7 +12,7 @@ struct ScenariosView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Image("caixaCenarios")
+                    Image("caixaTextoPerfume")
                         .resizable()
                         .scaledToFit()
                         .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.9)
@@ -36,12 +36,12 @@ struct ScenariosView: View {
                 }
             }
         }
-        .fullScreenCover(isPresented: $isIntroViewActive) {
-            SeasonsView()
-        }
+//        .fullScreenCover(isPresented: $isIntroViewActive) {
+//            SeasonsView()
+//        }
     }
 }
 
 #Preview {
-    ScenariosView()
+    PerfumesView()
 }
