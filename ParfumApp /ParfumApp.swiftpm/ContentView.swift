@@ -11,7 +11,6 @@ struct ContentView: View {
                 
                 HStack {
                     Spacer()
-                    //aajsifjasjfiasfjias
                     VStack {
                         Image("displayName")
                             .resizable()

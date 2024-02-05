@@ -36,9 +36,9 @@ struct PerfumesView: View {
                 }
             }
         }
-//        .fullScreenCover(isPresented: $isIntroViewActive) {
-//            SeasonsView()
-//        }
+        .fullScreenCover(isPresented: $isIntroViewActive) {
+            PrepView()
+        }
     }
 }
 

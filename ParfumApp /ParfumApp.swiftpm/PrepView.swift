@@ -29,7 +29,7 @@ struct PrepView: View {
                                 .padding()
                         }
                         .fullScreenCover(isPresented: $isIntroViewActive) {
-                            IntroView()
+                           SortOcaView()
                         }
                         
                         Text("Start")
