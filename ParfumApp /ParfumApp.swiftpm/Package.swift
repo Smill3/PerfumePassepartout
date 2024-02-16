@@ -17,7 +17,7 @@ let package = Package(
             name: "ParfumApp",
             targets: ["AppModule"],
             bundleIdentifier: "Chris.ParfumApp",
-            teamIdentifier: "H57S947K7K",
+            teamIdentifier: "BU3D825X38",
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .placeholder(icon: .plane),
@@ -27,7 +27,7 @@ let package = Package(
                 .phone
             ],
             supportedInterfaceOrientations: [
-                .portrait,
+                .portrait
             ]
         )
     ],
@@ -35,8 +35,9 @@ let package = Package(
         .executableTarget(
             name: "AppModule",
             path: ".",
-		resources: [
-.process("Resources")]
+            resources: [
+                .process("Resources")
+            ]
         )
     ]
 )

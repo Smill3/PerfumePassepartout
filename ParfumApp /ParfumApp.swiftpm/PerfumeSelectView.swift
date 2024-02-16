@@ -9,6 +9,8 @@ struct PerfumeSelectView: View {
     @State var opacitySpicy = 1.0
     @State var perfumeSelecionado = ""
     @State private var isIntroViewActive = false
+    @State var bannerSize : CGFloat = 0
+    @State var bannerPadding: CGFloat = 0
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .topLeading) {
@@ -19,20 +21,23 @@ struct PerfumeSelectView: View {
                 
                 HStack {
                     Spacer()
-                    Image(OccasionAndSeason.selectedOccasion)
+                    Image("ocaWinter")
+//                    Image(OccasionAndSeason.selectedOccasion)
+
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 300, height: 300)
+                        .frame(width: bannerSize, height: bannerSize)
                         .padding(.top, 10) // Mova um pouco para cima
-                        .padding(.leading, 10)
+                        .padding(.leading, 1)
                     // Mova um pouco para a direita
                     Spacer()
-                    Image(OccasionAndSeason.selectedSeason) // Nova imagem no canto superior direito
+                    Image("ocaWinter") // Nova imagem no canto superior direito
+//                    Image(OccasionAndSeason.selectedSeason)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 300, height: 300)
+                        .frame(width: bannerSize, height: bannerSize)
                         .padding(.top, 10) // Mova um pouco para cima
-                        .padding(.trailing, 10) // Mova um pouco para a direita
+                        .padding(.trailing, bannerPadding) // Mova um pouco para a direita
                     Spacer()
                 }
                 Image(caixaFrases)
@@ -135,6 +140,19 @@ struct PerfumeSelectView: View {
             .fullScreenCover(isPresented: $isIntroViewActive) {
                 ResultadosView()
             }
+            .onAppear() {
+        
+                self.resizeBanner(size: geometry)
+            }
+        }
+    }
+    func resizeBanner(size: GeometryProxy){
+        if size.size.height >= 1150 {
+            bannerSize = 350
+            bannerPadding = 20
+        } else {
+            bannerSize = 300
+            bannerPadding = 60
         }
     }
 }
