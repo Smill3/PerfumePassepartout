@@ -11,7 +11,7 @@ struct SeasonsView: View {
                     .ignoresSafeArea()
             }
             VStack{
-                Image("caixaEstacoes2")
+                Image("caixaEstacoesNew")
                     .resizable()
                     .scaledToFit()
                     .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.9)

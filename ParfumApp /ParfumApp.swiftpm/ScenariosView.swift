@@ -12,7 +12,7 @@ struct ScenariosView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Image("caixaCenarios")
+                    Image("caixaCenariosNew")
                         .resizable()
                         .scaledToFit()
                         .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.9)

@@ -21,8 +21,8 @@ struct PerfumeSelectView: View {
                 
                 HStack {
                     Spacer()
-                    Image("ocaWinter")
-//                    Image(OccasionAndSeason.selectedOccasion)
+                    
+                    Image(OccasionAndSeason.selectedOccasion)
 
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -31,8 +31,8 @@ struct PerfumeSelectView: View {
                         .padding(.leading, 1)
                     // Mova um pouco para a direita
                     Spacer()
-                    Image("ocaWinter") // Nova imagem no canto superior direito
-//                    Image(OccasionAndSeason.selectedSeason)
+                     // Nova imagem no canto superior direito
+                    Image(OccasionAndSeason.selectedSeason)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: bannerSize, height: bannerSize)
