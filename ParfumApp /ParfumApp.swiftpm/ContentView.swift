@@ -1,7 +1,9 @@
 import SwiftUI
+import AVFoundation
 
 struct ContentView: View {
     @State private var isIntroViewActive = false
+    var soundManager = SoundManager()
     
     var body: some View {
         
@@ -68,9 +70,18 @@ struct ContentView: View {
                     .scaledToFill()
                     .ignoresSafeArea()
             )
+            
+            .onAppear(){
+                soundManager.loadSound(fileNamed: "BGM")
+            
+            }
         }
+
+      
     }
 }
+
+
 #Preview {
     ContentView()
 }

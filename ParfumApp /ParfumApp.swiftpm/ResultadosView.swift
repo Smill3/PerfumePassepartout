@@ -24,11 +24,41 @@ struct ResultadosView: View {
                     ("ocaParty", "ocaWinter", "perfumeSpicy"),
                     ("ocaWork", "ocaFall", "perfumeAmadeirado"),
                     ("ocaWork", "ocaWinter", "perfumeAmadeirado"):
-                    Image("caixaWin")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.9)
-                        .position(x: geometry.size.width * 0.5, y: geometry.size.height / 2)
+                    VStack {
+                        Image("caixaWinNew")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.9)
+                            .position(x: geometry.size.width * 0.5, y: geometry.size.height / 2)
+                        
+                        Button(action: {
+                            self.changeScreen = true
+                        }) {
+                            
+                            Image("botaoCima")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: min(geometry.size.width * 0.3, 200), height: min(geometry.size.width * 0.3, 200))
+                                .overlay{
+                                    Text("Title Screen")
+                                        .foregroundColor(.white)
+                                        .font(.custom("Baskic8", size: min(geometry.size.width * 0.1, 35)))
+                                    
+                                }
+                                .frame(alignment: .center)
+                                .frame(maxWidth: .infinity)
+                            
+                        }
+                        .frame(alignment: .center)
+                        .frame(maxWidth: .infinity)
+                        
+                    }
+                    .fullScreenCover(isPresented: $changeScreen) {
+                        ContentView()
+                    }
+                    
+                    
+                    
                     
                 case ("ocaDate", "ocaSpring", "perfumeFloral"),
                     ("ocaDate", "ocaSummer", "perfumeCitrico"),
@@ -43,30 +73,31 @@ struct ResultadosView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.9)
-                        .position(x: geometry.size.width * 0.5, y: geometry.size.height / 2)
-                    
-                    
-//                    Spacer()
-                    Button(action: {
-                        self.changeScreen = true
-                    }) {
+                            .position(x: geometry.size.width * 0.5, y: geometry.size.height / 2)
                         
-                        Image("botaoCima")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: min(geometry.size.width * 0.3, 200), height: min(geometry.size.width * 0.3, 200))
-                            .overlay{
-                                Text("Title Screen")
-                                    .foregroundColor(.white)
-                                    .font(.custom("Baskic8", size: min(geometry.size.width * 0.1, 35)))
+                        
+                        
+                        //                    Spacer()
+                        Button(action: {
+                            self.changeScreen = true
+                        }) {
+                            
+                            Image("botaoCima")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: min(geometry.size.width * 0.3, 200), height: min(geometry.size.width * 0.3, 200))
+                                .overlay{
+                                    Text("Title Screen")
+                                        .foregroundColor(.white)
+                                        .font(.custom("Baskic8", size: min(geometry.size.width * 0.1, 35)))
                                     
-                            }
-                            .frame(alignment: .center)
-                            .frame(maxWidth: .infinity)
-                        
-                    }
-                    .frame(alignment: .center)
-                    .frame(maxWidth: .infinity)
+                                }
+                                .frame(alignment: .center)
+                                .frame(maxWidth: .infinity)
+                            
+                        }
+                        .frame(alignment: .center)
+                        .frame(maxWidth: .infinity)
                         
                     }
                     .fullScreenCover(isPresented: $changeScreen) {
@@ -101,7 +132,7 @@ struct ResultadosView: View {
                         Spacer()
                         Button(action: {
                             //OccasionAndSeason.selectedPerfume = perfumeSelecionado
-//                            self.changeScreen = true
+                            //                            self.changeScreen = true
                             dismiss()
                         }) {
                             ZStack {
@@ -132,8 +163,8 @@ struct ResultadosView: View {
 
 #Preview("teste") {
     OccasionAndSeason.selectedOccasion = "ocaDate"
-    OccasionAndSeason.selectedSeason = "ocaSpring"
-    OccasionAndSeason.selectedPerfume = "perfumeFloral"
+    OccasionAndSeason.selectedSeason = "ocaFall"
+    OccasionAndSeason.selectedPerfume = "perfumeAmadeirado"
     
     return ResultadosView()
 }
