@@ -8,6 +8,7 @@ struct SortSeasonView: View {
     @State private var isIntroViewActive = false
     @State private var isAnimationFinished = false
     let assetNames = ["ocaWinter", "ocaSpring", "ocaFall", "ocaSummer"]
+    var soundManager = SoundRoletaEstacao()
     
     var body: some View {
         GeometryReader { geometry in
@@ -37,6 +38,7 @@ struct SortSeasonView: View {
                                     timer.invalidate()
                                     self.isAnimationFinished = true // Ativa o botão ao fim da animação
                                     OccasionAndSeason.selectedSeason = self.assetNames[self.randomAssetIndex]
+                                  //  self.soundManager.stopSound()
                                 }
                             }
                     }
@@ -64,6 +66,13 @@ struct SortSeasonView: View {
                 }
             }
         }
+        .onAppear(){
+            soundManager.loadSound(fileNamed: "SpinnerSound")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.3) {
+                self.soundManager.stopSound()
+            }
+        }
+        
         .onAppear {
             self.randomAssetIndex = Int.random(in: 0..<self.assetNames.count)
         }
@@ -71,3 +80,6 @@ struct SortSeasonView: View {
 }
 
 //.position(y: geometry.size.height * 0.9)
+#Preview {
+    SortSeasonView()
+}

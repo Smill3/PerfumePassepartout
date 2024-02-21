@@ -4,6 +4,8 @@ import SwiftUI
 struct ResultadosView: View {
     @State private var isIntroViewActive = false
     @State private var changeScreen = false
+
+    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -101,7 +103,7 @@ struct ResultadosView: View {
                         
                     }
                     .fullScreenCover(isPresented: $changeScreen) {
-                        ContentView()
+                        ContentView(firstTimePlaying: false)
                     }
                     
                 default:

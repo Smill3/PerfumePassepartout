@@ -12,7 +12,8 @@ struct SortOcaView: View {
     @State private var isIntroViewActive = false
     @State private var isAnimationFinished = false
     let assetNames = ["ocaWork", "ocaParty", "ocaPark", "ocaDate"]
-   
+    var soundManager = SoundRoleta()
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -41,6 +42,7 @@ struct SortOcaView: View {
                                     timer.invalidate()
                                     self.isAnimationFinished = true // Ativa o botão ao fim da animação
                                     OccasionAndSeason.selectedOccasion = self.assetNames[self.randomAssetIndex]
+                                    self.soundManager.stopSound()
                                 }
                             }
                     }
@@ -49,6 +51,7 @@ struct SortOcaView: View {
                 if self.isAnimationFinished {
                     Button(action: {
                         self.isIntroViewActive = true
+                        
                     }) {
                         Image("botaoCima")
                             .resizable()
@@ -65,6 +68,10 @@ struct SortOcaView: View {
                         
                 }
             }
+        }
+        
+        .onAppear(){
+            soundManager.loadSound(fileNamed: "SpinnerSound")
         }
         .onAppear {
             self.randomAssetIndex = Int.random(in: 0..<self.assetNames.count)

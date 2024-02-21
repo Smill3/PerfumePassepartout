@@ -1,15 +1,15 @@
 import AVFoundation
 
-class SoundManager {
+class SoundRoletaEstacao {
     var audioPlayer: AVAudioPlayer?
 
     func loadSound(fileNamed: String) {
-        if let path = Bundle.main.path(forResource: fileNamed, ofType: "wav") {
+        if let path = Bundle.main.path(forResource: fileNamed, ofType: "mp3") {
             let url = URL(fileURLWithPath: path)
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: url)
-                audioPlayer?.numberOfLoops = -1
-                audioPlayer?.volume = 0.2
+                audioPlayer?.numberOfLoops = 0
+                audioPlayer?.volume = 0.1
                 audioPlayer?.prepareToPlay()
                 audioPlayer?.play()
             } catch {

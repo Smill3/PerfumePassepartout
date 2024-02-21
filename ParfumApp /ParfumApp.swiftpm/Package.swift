@@ -8,19 +8,19 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "ParfumApp",
+    name: "PerfumePassepartout",
     platforms: [
         .iOS("16.0")
     ],
     products: [
         .iOSApplication(
-            name: "ParfumApp",
+            name: "PerfumePassepartout",
             targets: ["AppModule"],
             bundleIdentifier: "Chris.ParfumApp",
             teamIdentifier: "BU3D825X38",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .plane),
+            appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.teal),
             supportedDeviceFamilies: [
                 .pad,

@@ -4,6 +4,7 @@ import AVFoundation
 struct ContentView: View {
     @State private var isIntroViewActive = false
     var soundManager = SoundManager()
+    var firstTimePlaying: Bool?
     
     var body: some View {
         
@@ -72,8 +73,12 @@ struct ContentView: View {
             )
             
             .onAppear(){
-                soundManager.loadSound(fileNamed: "BGM")
-            
+                    soundManager.loadSound(fileNamed: "BGM")
+                if let firstTime = firstTimePlaying {
+                    if !firstTime {
+                        soundManager.stopSound()
+                    }
+                }
             }
         }
 

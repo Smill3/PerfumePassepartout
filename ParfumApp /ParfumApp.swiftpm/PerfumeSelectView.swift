@@ -11,6 +11,8 @@ struct PerfumeSelectView: View {
     @State private var isIntroViewActive = false
     @State var bannerSize : CGFloat = 0
     @State var bannerPadding: CGFloat = 0
+  
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .topLeading) {
@@ -118,22 +120,27 @@ struct PerfumeSelectView: View {
                     .padding(.horizontal, 100)
                     .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.42)
                     
-                    Button(action: {
-                        OccasionAndSeason.selectedPerfume = perfumeSelecionado
-                        self.isIntroViewActive = true
-                    }) {
-                        Image("botaoCima")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: min(geometry.size.width * 0.3, 200), height: min(geometry.size.width * 0.3, 200))
+                    if perfumeSelecionado != "" {
+                        Button(action: {
+                            OccasionAndSeason.selectedPerfume = perfumeSelecionado
+                            self.isIntroViewActive = true
+                            
+                        }) {
+                            Image("botaoCima")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: min(geometry.size.width * 0.3, 200), height: min(geometry.size.width * 0.3, 200))
+                        }
+                        .position(x: geometry.size.width / 2, y: geometry.size.height * 0.5)
+                        
+                        Text("Next")
+                            .foregroundColor(.white)
+                            .font(.custom("Baskic8", size: min(geometry.size.width * 0.1, 50)))
+                            .padding(.top, -geometry.size.height * 0.25)
+                            .position(x: geometry.size.width / 2, y: geometry.size.height * 0.4)
                     }
-                .position(x: geometry.size.width / 2, y: geometry.size.height * 0.5)
                 
-                Text("Next")
-                    .foregroundColor(.white)
-                    .font(.custom("Baskic8", size: min(geometry.size.width * 0.1, 50)))
-                    .padding(.top, -geometry.size.height * 0.25)
-                    .position(x: geometry.size.width / 2, y: geometry.size.height * 0.4)
+                
                     
                 }
             }
@@ -141,7 +148,6 @@ struct PerfumeSelectView: View {
                 ResultadosView()
             }
             .onAppear() {
-        
                 self.resizeBanner(size: geometry)
             }
         }
