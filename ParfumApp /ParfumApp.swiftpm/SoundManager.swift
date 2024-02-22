@@ -1,6 +1,7 @@
 import AVFoundation
 
 class SoundManager {
+    
     var audioPlayer: AVAudioPlayer?
 
     func loadSound(fileNamed: String) {

@@ -35,6 +35,7 @@ struct ResultadosView: View {
                         
                         Button(action: {
                             self.changeScreen = true
+                            
                         }) {
                             
                             Image("botaoCima")
@@ -82,6 +83,7 @@ struct ResultadosView: View {
                         //                    Spacer()
                         Button(action: {
                             self.changeScreen = true
+                            
                         }) {
                             
                             Image("botaoCima")
@@ -103,7 +105,7 @@ struct ResultadosView: View {
                         
                     }
                     .fullScreenCover(isPresented: $changeScreen) {
-                        ContentView(firstTimePlaying: false)
+                        ContentView()
                     }
                     
                 default:
